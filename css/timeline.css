@@ -1,0 +1,28 @@
+@media (min-width: 1200px) {
+    .container {
+        width: 900px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 800px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        width: 700px;
+    }
+}
+
+.navi {
+    text-decoration: none;
+}
+.gitment-editor-body textarea {
+    transition: all 0.3s ease 0s;
+    min-height: 50px
+}
+.footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 18px;
+}
