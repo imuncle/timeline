@@ -105,7 +105,12 @@ var timeline = function(config) {
                 self.options.icon_num++;
             }
         }
-    },
+    }
+
+    self.setTitle = function() {
+        $('#title').text(config.title);
+        document.getElementsByTagName("title")[0].innerText = config.title;
+    }
 
     self.init = function() {
         self.showIcon();
