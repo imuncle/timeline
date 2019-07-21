@@ -115,6 +115,7 @@ var timeline = function(config) {
     self.init = function() {
         self.showIcon();
         self.getMessageTotalNum();
+        self.setTitle();
         window.onscroll = function() {
             if($(document).height() == $(window).height() + $(window).scrollTop()) {
                 self.lazyLoad({
