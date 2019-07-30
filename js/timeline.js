@@ -65,7 +65,7 @@ var timeline = function(config) {
         self.git.getIssueNum(function(data) {
             self.options.issue_total_num = data.open_issues_count;
             self.lazyLoad({
-                author:'imuncle',
+                author:config.name,
                 page:self.options.page,
                 per_page:10,
                 type:'html'
@@ -120,7 +120,7 @@ var timeline = function(config) {
         window.onscroll = function() {
             if($(document).height() == $(window).height() + $(window).scrollTop()) {
                 self.lazyLoad({
-                    author:'imuncle',
+                    author:config.name,
                     page:self.options.page,
                     per_page:10,
                     type:'html'
