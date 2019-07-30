@@ -82,10 +82,11 @@ var timeline = function(config) {
                 for(var i in data) {
                     var temp_message = new message(data[i], i+1);
                     temp_message.init();
-                    self.options.page++;
+                    self.options.issue_show_num++;
                     self.messages.push(temp_message);
                     document.getElementById("load_message").innerHTML = "";
                 }
+                self.options.page++;
             });
         }
     }
