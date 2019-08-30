@@ -3,15 +3,10 @@
     "repo": "timeline",
     "title": "大叔的想法",
     "icons": {
-        "Github": {
-            "icon_src": "images/github.svg",
-            "href": "https://github.com/imuncle",
-            "width": 0
-        },
-        "QQ": {
-            "icon_src": "images/QQ.svg",
-            "href": "tencent://message/?uin=1378006772",
-            "width": 0
+        "大叔的小站": {
+            "icon_src": "images/blog.svg",
+            "href": "https://imuncle.github.io",
+            "width": 50
         }
     }
 }
