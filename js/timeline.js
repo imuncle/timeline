@@ -5,13 +5,10 @@ var timeline = function(config) {
 
     self.messages = [];
 
-    self.icons = [];
-
     self.options = {
         issue_total_num:0,
         issue_show_num:0,
         page:1,
-        icon_num:0
     }
 
     self.utc2localTime = function(time) {
@@ -29,26 +26,6 @@ var timeline = function(config) {
         return year+'年'+month+'月'+date+'日'+' '+hour+':'+minute+':'+second;
     }
 
-    var Icon = function(options, name, left) {
-        this.icon_src = options.icon_src;
-        this.href = options.href;
-        this.hidden_img = options.hidden_img;
-        this.width = options.width;
-        this.name = name;
-        this.position = left;
-    }
-
-    Icon.prototype = {
-        init: function() {
-            var icon = this;
-            if(icon.href != undefined && icon.href != null) {
-                document.getElementById("div_"+icon.name).innerHTML += '<a target="_blank" title="' + icon.name + '" id="icon_' + icon.name + '" href="' + icon.href + '"><img src="' + icon.icon_src + '" style="width:' + icon.width + 'px;margin-left:10px;margin-right:10px"></a>';
-            } else {
-                document.getElementById("div_"+icon.name).innerHTML += '<img src="' + icon.icon_src + '" title="' + icon.name + '" id="icon_' + icon.name + '" style="width:' + icon.width + 'px;margin-left:10px;margin-right:10px;cursor:pointer">';
-            }
-        }
-    }
-
     var message = function(issue_content, issue_id) {
         this.data = issue_content;
         this.id = issue_id;
@@ -57,7 +34,13 @@ var timeline = function(config) {
     message.prototype = {
         init: function() {
             this.data.created_at = self.utc2localTime(this.data.created_at);
-            document.getElementById('message-list').innerHTML += '<li class="gitment-comment">' + '<a class="gitment-comment-avatar" href=' + this.data.user.html_url + ' target="_blank"><img class="gitment-comment-avatar-img" src=' + this.data.user.avatar_url + '></a><div class="gitment-comment-main"><div class="gitment-comment-header"><a class="gitment-comment-name" href=' + this.data.user.html_url + ' target="_blank">' + this.data.user.login + '</a></div><div class="gitment-comment-body gitment-markdown">' + this.data.body_html + '</div><div class="gitment-comment-header"><span>' + this.data.created_at + '</span></div></div></li>';
+            var content = '<li class="article-list-item scrollappear appear appeared">';
+            if(this.data.labels[0] == 'document') {
+                content += '<a class="article-title" href="' + this.data.html_url + '"><h3>' + this.data.labels[0] + '<svg xmlns="http://www.w3.org/2000/svg" class="icon-arrow-right"><use href="images/arrow-right.svg#icon-arrow-right" xlink:href="images/arrow-right.svg"></use></svg></h3></a>';
+            }
+            content += '<div class="gitment-markdown">' + this.data.body_html + '</div>';
+            content += '<div class="article-list-footer"><span class="article-list-date">' + this.data.created_at + '</span><span class="article-list-divider">-</span><div class="article-list-tags"><a>' + this.data.labels[0].name + '</a></div></div></li>';
+            document.getElementById('message-list').innerHTML += content;
         }
     }
 
@@ -91,30 +74,12 @@ var timeline = function(config) {
         }
     }
 
-    self.showIcon = function() {
-        for (var i in config.icons) {
-            if (config.icons[i].icon_src != undefined && config.icons[i].icon_src != null) {
-                document.getElementById('icon').innerHTML += '<div style="padding-inline-start: 0;margin: 0" id="div_'+i+'"></div>';
-            }
-        }
-        for (var i in config.icons) {
-            if (config.icons[i].icon_src != undefined && config.icons[i].icon_src != null) {
-                var left = Object.keys(config.icons).length * 35 - 70 * self.options.icon_num + config.icons[i].width / 2 - 35;
-                var icon = new Icon(config.icons[i], i, left);
-                icon.init();
-                self.icons.push(icon);
-                self.options.icon_num++;
-            }
-        }
-    }
-
     self.setTitle = function() {
         $('#title').text(config.title);
         document.getElementsByTagName("title")[0].innerText = config.title;
     }
 
     self.init = function() {
-        self.showIcon();
         self.getMessageTotalNum();
         self.setTitle();
         window.onscroll = function() {

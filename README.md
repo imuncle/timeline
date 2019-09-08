@@ -1,5 +1,5 @@
 # timeline
-仿QQ空间时间轴
+我的灵感想法页面，对接git issue。
 
 效果预览：[大叔的想法](https://imuncle.github.io/timeline)
 
@@ -10,18 +10,6 @@
 {
     "name": "imuncle",
     "repo": "timeline",
-    "title": "大叔的想法",
-    "icons": {
-        "Github": {
-            "icon_src": "images/github.svg",
-            "href": "https://github.com/imuncle",
-            "width": 0
-        },
-        "QQ": {
-            "icon_src": "images/QQ.svg",
-            "href": "tencent://message/?uin=1378006772",
-            "width": 0
-        }
-    }
+    "title": "大叔的想法"
 }
 ```

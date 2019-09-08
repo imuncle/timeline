@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
-        <meta name="format-detection" content="telephone=no"/>
-        <link rel="icon" href="images/avatar.jpg">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/gitment.css">
-        <link rel="stylesheet" href="css/timeline.css">
-    </head>
-    <body style="background-color: rgb(232,232,232);background-image: url(//i.gtimg.cn/qzone/space_item/orig/3/72019_top.jpg); background-repeat: no-repeat;background-position: center top;background-attachment: scroll;">
-        <div style="height:250px">
-            <div class="container">
-                <img style="width: 128px;height: 128px;position: absolute;top: 100px;border: #FFF 3px solid;" src="images/avatar.jpg">
-                <div style="position: relative;top: 100px;left: 150px;">
-                    <span id="title" style="font-size: 3em;display: block"></span>
-                    <div id="icon" style="display: flex;padding-top: 10px;align-items: center"></div>
-                </div>
-            </div>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="images/avatar.jpg">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" href="css/gitment.css">
+  </head>
+  <body>
+    <main>
+      <div class="grid grid-centered">
+        <div class="grid-cell">
+          <nav class="header-nav scrollappear appear appeared">
+            <a class="header-logo">Thinking</a>
+            <ul class="header-links">
+              <li>
+                <a href="https://github.com/imuncle" rel="noreferrer noopener" target="_blank" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+                    <use href="images/github.svg#icon-github" xlink:href="images/github.svg"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://imuncle.github.io" rel="noreferrer noopener" title="主页">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon-dribbble">
+                    <use href="images/dribbble.svg#icon-dribbble" xlink:href="images/dribbble.svg"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <ul class="article-list" id="message-list"></ul>
+          <footer class="footer scrollappear appear appeared">
+            <p id="load_message"></p>
+            <p>Powered by <a href="https://github.com/imuncle/timeline" target="_blank">timeline</a></p>
+          </footer>
         </div>
-        <div class="container" style="background-color: white">
-            <ul class="gitment-comments-list" id="message-list"></ul>
-        </div>
-        <div class="footer">
-            <span id="load_message"></span><br>
-            <span>Powered by <a href="https://github.com/imuncle/timeline" target="_blank">timeline</a></span>
-        </div>
-    </body>
-    <script src = "js/jquery.min.js"></script>
-    <script src = "js/git.js"></script>
-    <script src = "js/timeline.js"></script>
+      </div>
+    </main>
+  </body>
+  <script src = "js/jquery.min.js"></script>
+  <script src = "js/git.js"></script>
+  <script src = "js/timeline.js"></script>
 </html>

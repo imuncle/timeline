@@ -1,12 +1,5 @@
 {
     "name": "imuncle",
     "repo": "timeline",
-    "title": "大叔的想法",
-    "icons": {
-        "大叔的小站": {
-            "icon_src": "images/blog.svg",
-            "href": "https://imuncle.github.io",
-            "width": 50
-        }
-    }
+    "title": "大叔的想法"
 }
